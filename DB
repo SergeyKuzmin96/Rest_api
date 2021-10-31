@@ -1,0 +1,214 @@
+CREATE TABLE country
+(
+	id SERIAL PRIMARY KEY,
+	name VARCHAR(25) NOT NULL
+
+);
+
+INSERT INTO country
+VALUES
+
+	(1,'USA'),
+	(2,'China'),
+	(3,'South Korea'),
+	(4,'Russia'),
+	(5,'Taiwan'),
+	(6,'Indonesia'),
+	(7,'Germany'),
+	(8,'Hungary'),
+	(9,'Vietnam'),
+	(10,'Poland');
+
+
+
+
+CREATE TABLE company
+(
+	id SERIAL PRIMARY KEY,
+	name VARCHAR(25) NOT NULL
+
+);
+
+INSERT INTO company
+VALUES
+
+	(1,'Apple'),
+	(2,'Samsung'),
+	(3,'Lg'),
+	(4,'Bork'),
+	(5,'Huawei'),
+	(6,'Simens'),
+	(7,'Acer'),
+	(8,'Bosh'),
+	(9,'Electrolux'),
+	(10,'Xiaomi');
+
+CREATE TABLE tv
+(
+
+	id SERIAL PRIMARY KEY,
+	name  VARCHAR(255)NOT NULL,
+	serial_number VARCHAR(255)NOT NULL,
+	price DECIMAL NOT NULL,
+	color VARCHAR(255)NOT NULL,
+	length DOUBLE PRECISION NOT NULL,
+	height DOUBLE PRECISION NOT NULL,
+	width DOUBLE PRECISION NOT NULL,
+	category VARCHAR(255)NOT NULL,
+	technology VARCHAR(255)NOT NULL,
+	availability Boolean NOT NULL,
+	order_online Boolean NOT NULL,
+	instalment Boolean NOT NULL,
+	company_id INTEGER REFERENCES company(id),
+	country_id INTEGER REFERENCES country(id)
+);
+
+
+
+INSERT INTO tv
+VALUES
+
+	(1, 'LED Huawei HD55KAN9A', 'ADS654FGASDF', 52999, 'черный', 1230.1,714.1,73,  'UltraHD', 'LED',TRUE, FALSE, TRUE, 5, 2),
+	(2, 'LED Samsung UE43T5300AUXRU', 'HF454DF5G4D4', 31399, 'белый', 980,565,77,  'FullHD', 'LED', FALSE, TRUE, TRUE, 2, 4),
+	(3, 'LED Samsung UE50TU7560UXRU', 'EF9G9XC9CSS8', 49999, 'черный', 1116,644,60,  'UltraHD', 'LED', TRUE, FALSE, FALSE, 2, 3),
+	(4, 'LED LG 43UN68006LA', 'NH45GA44C32', 33999, 'черный', 973,576,81,  'UltraHD', 'LED', TRUE, FALSE, TRUE, 3, 3),
+	(5, 'LED LG 55UP77026LB', 'MK32O5R223M', 51999, 'серый', 1235,715,57.5,  'UltraHD', 'LED', TRUE, FALSE, TRUE, 3, 2),
+	(6, 'LED Xiaomi Mi TV 4S 50', 'MN4534C221C', 38999, 'серый', 1115,657.2,80,  'UltraHD', 'LED', FALSE, FALSE, TRUE, 10, 2),
+	(7, 'LED Xiaomi Mi TV 4A 55', 'MN4550C221C', 45999, 'черный', 1231.6,710.8,89,  'UltraHD', 'LED', TRUE, TRUE, TRUE, 10, 2),
+	(8, 'LED Samsung UE55TU7090', '436G46354V3', 59999, 'серый', 1230,703,61,  'UltraHD', 'LED', TRUE, FALSE, FALSE, 2, 4),
+	(9, 'LED Samsung The Frame QE32LS03TBKXRU', 'O4G8ASF348', 39999, 'черный', 720,420,25, 'FullHD', 'LED', TRUE, FALSE, TRUE, 2, 4),
+	(10,'LED LG 32LM6370PLA', '32LM6370PLA', 25999, 'черный', 736,437,82.9,  'FullHD', 'LED', FALSE, TRUE, TRUE, 3, 2);
+
+
+CREATE TABLE cleaners
+(
+	id SERIAL PRIMARY KEY,
+	name  VARCHAR(255)NOT NULL,
+	serial_number VARCHAR(255)NOT NULL,
+	price DECIMAL NOT NULL,
+	color VARCHAR(255)NOT NULL,
+	length DOUBLE PRECISION NOT NULL,
+	height DOUBLE PRECISION NOT NULL,
+	width DOUBLE PRECISION NOT NULL,
+	collector_volume DOUBLE PRECISION NOT NULL,
+	count_of_mode INTEGER NOT NULL,
+	availability Boolean NOT NULL,
+	order_online Boolean NOT NULL,
+	instalment Boolean NOT NULL,
+	company_id INTEGER REFERENCES company(id),
+	country_id INTEGER REFERENCES country(id)
+
+);
+
+INSERT INTO cleaners
+VALUES
+
+	(1, 'Samsung SC18M21A0S1', 'GMO34G93V3M', 5599,'красный', 272,398,243,  1.5, 1,TRUE, FALSE, TRUE, 2, 9),
+	(2, 'Bosch BGS1U1800', 'MXC92CM92', 5999,'белый',288,300,445,  1.4, 1, FALSE, TRUE, TRUE, 8, 10),
+	(3, 'LG VK76A06DNDL', 'MN2O3D929', 5999,'черный', 435,282,258,  1.5, 1,TRUE, FALSE, TRUE, 3, 9),
+	(4, 'Electrolux ZPF2200 POWERFORCE', 'Z30JV3NV', 12199,'красный', 293,238,441,  3.5, 2, FALSE, TRUE, TRUE, 8, 8),
+	(5, 'Xiaomi Mi Robot Vacuum- Mop Essential', 'R9VN3943492',14999, 'белый', 350,353,81.5,  0.6, 2,TRUE, FALSE, TRUE, 10, 2),
+	(6, 'SAMSUNG VR05R503PWG/EV', 'BVM54OPGF3', 179999,'черный', 340,340,85,  0.4, 2, FALSE, TRUE, TRUE, 2, 2),
+	(7, 'Xiaomi Mi Robot Vacuum- Mop Pro', 'QWNGF3I4FN3I', 30999,'черный', 350,350,94.5,  0.5, 3,TRUE, FALSE, TRUE, 10, 2),
+	(8, 'LG VR6540LVID', 'HMB4GM4GM', 21099,'черный', 340,340,89,  0.6, 4, FALSE, TRUE, TRUE, 3, 3),
+	(9, 'Samsung SR10M7030WG', 'C34C34G4HG45', 34999,'черный', 348,340,97,  0.3, 3,TRUE, FALSE, TRUE, 2,9);
+
+
+CREATE TABLE fridges
+(
+	id SERIAL PRIMARY KEY,
+	name  VARCHAR(255)NOT NULL,
+	serial_number VARCHAR(255)NOT NULL,
+	price DECIMAL NOT NULL,
+	color VARCHAR(255)NOT NULL,
+	length DOUBLE PRECISION NOT NULL,
+	height DOUBLE PRECISION NOT NULL,
+	width DOUBLE PRECISION NOT NULL,
+	count_of_door INTEGER NOT NULL,
+	compressor VARCHAR(255)NOT NULL,
+	availability Boolean NOT NULL,
+	order_online Boolean NOT NULL,
+	instalment Boolean NOT NULL,
+	company_id INTEGER REFERENCES company(id),
+	country_id INTEGER REFERENCES country(id)
+
+);
+
+INSERT INTO fridges
+VALUES
+
+	(1, 'Bosch KGV36NL1AR', 'N34FIO34NF', 30999,'серебристый', 60,185,65,  2, 'линейный',TRUE, FALSE, TRUE, 8, 4),
+	(2, 'Samsung RT22HAR4DSA', 'MO34MFO3FMF', 36999,'серебристый', 55.5,154.5,63.7,  2, 'инверторный', FALSE, TRUE, TRUE, 2, 9),
+	(3, 'LG GA-B459CQWL', 'VN3I4NV33V', 38999,'белый', 59.5,186,68.2,  2, 'инверторный',TRUE, FALSE, TRUE, 3, 9),
+	(4, 'Samsung RB37A5470SA/WT', 'F43F3VM34', 51999, 'серебристый', 59,200,66.5,  2, 'инверторный', FALSE, TRUE, TRUE, 2, 9),
+	(5, 'Bosch Serie 4 VitaFresh KGN39VL25R', 'NF349FN34F', 57999, 'серебристый', 59.7,203,64,  2, 'инверторный',TRUE, FALSE, TRUE, 8, 4),
+	(6, 'LG GN-B422SECL', 'C3NNC4F34', 58599,'бежевый', 59.5,167.5,68,  2, 'инверторный', FALSE, TRUE, TRUE, 3, 6),
+	(7, 'Electrolux LXB1AF15W0', 'CVN3OI4N9F3', 33999,'белый', 59.5,85,64,  1, 'линейный',TRUE, FALSE, TRUE, 9, 8),
+	(8, 'Samsung RR39M7140SA/WT', 'FMO34MFO34F', 63999,'серебристый', 59.5,185.3,69.4,  1, 'инверторный', FALSE, TRUE, TRUE, 2, 9),
+	(9, 'LG GC-B401EMDV', 'BV45G34F43', 59999,'серебристый', 59.5,185,67.3,  1, 'инверторный',TRUE, FALSE, TRUE, 3, 2);
+
+CREATE TABLE smartphones
+(
+	id SERIAL PRIMARY KEY,
+	name  VARCHAR(255)NOT NULL,
+	serial_number VARCHAR(255)NOT NULL,
+	price DECIMAL NOT NULL,
+	color VARCHAR(255)NOT NULL,
+	length DOUBLE PRECISION NOT NULL,
+	height DOUBLE PRECISION NOT NULL,
+	width DOUBLE PRECISION NOT NULL,
+	memory INTEGER NOT NULL,
+	count_of_camera INTEGER NOT NULL,
+	availability Boolean NOT NULL,
+	order_online Boolean NOT NULL,
+	instalment Boolean NOT NULL,
+	company_id INTEGER REFERENCES company(id),
+	country_id INTEGER REFERENCES country(id)
+
+
+);
+INSERT INTO smartphones
+VALUES
+
+	(1, 'Samsung Galaxy A01 Core', 'SDAFG45G4H', 6499,'красный', 67.5, 141.7, 8.6,  16, 1,TRUE, FALSE, TRUE, 2, 9),
+	(2, 'Xiaomi Redmi 9A', 'V4H4WHW5CV4', 8999,'черный', 77.07, 164.9, 9,  32, 1, FALSE, TRUE, TRUE, 10, 2),
+	(3, 'Xiaomi Mi 11 Lite', 'HGMJ54WEH4', 30999,'черный', 75.7, 160.5 , 6.8,  128, 3,TRUE, FALSE, TRUE, 10, 2),
+	(4, 'Apple iPhone SE 2020', 'SDRF43GB54', 38449,'серый', 67.3, 138.4, 7.3,  64, 1, FALSE, TRUE, TRUE, 1, 2),
+	(5, 'Samsung Galaxy A72', 'JKCN34KNF3K', 41999,'желтый', 77.4, 165, 8.4,  256, 3,TRUE, FALSE, TRUE, 2, 2),
+	(6, 'Huawei P40 Pro', 'VCW45GB4H5', 69999,'голубой', 72.6, 158.2, 8.95,  256, 3, FALSE, TRUE, TRUE, 5, 2),
+	(7, 'Samsung Galaxy S20', 'DSCAVB56HE56', 74999,'черный', 69.1, 151.7, 7.9,  128, 3,TRUE, FALSE, TRUE, 2, 9),
+	(8, 'Huawei Mate 40 Pro', 'DSCAVB56HE56', 74999,'серебристый', 75.5, 162.9, 9.1,  256, 3,TRUE, FALSE, TRUE, 5, 2),
+	(9, 'Apple iPhone 13 mini', 'CVBBTD6H54', 77899,'черный', 64.2, 131.5, 7.65, 256, 2, FALSE, TRUE, TRUE, 1, 2);
+
+
+CREATE TABLE computers
+(
+	id SERIAL PRIMARY KEY,
+	name  VARCHAR(255)NOT NULL,
+	serial_number VARCHAR(255)NOT NULL,
+	price DECIMAL NOT NULL,
+	color VARCHAR(255)NOT NULL,
+	length DOUBLE PRECISION NOT NULL,
+	height DOUBLE PRECISION NOT NULL,
+	width DOUBLE PRECISION NOT NULL,
+	category VARCHAR(255)NOT NULL,
+	cpu VARCHAR(255)NOT NULL,
+	availability Boolean NOT NULL,
+	order_online Boolean NOT NULL,
+	instalment Boolean NOT NULL,
+	company_id INTEGER REFERENCES company(id),
+	country_id INTEGER REFERENCES country(id)
+
+);
+
+INSERT INTO computers
+VALUES
+
+	(1, 'Acer Aspire XC-1660', 'SWN435FN43F', 59999,'черный', 330, 195, 100,  'Персональный компьютер', 'Intel Core i7 11700',TRUE, FALSE, TRUE, 7, 2),
+	(2, 'Apple MacBook Air', 'V3MNOIV394', 89999,'серый', 212.4, 304.1, 16.1,  'ноутбук', 'Apple M1', FALSE, TRUE, TRUE, 1, 2),
+	(3, 'Apple MacBook Pro', 'VMOEIMF34F', 126199,'серебристый', 212.4, 304.1, 15.6,  'ноутбук', 'Apple M1',TRUE, FALSE, TRUE, 1, 2),
+	(4, 'Huawei MateBook X Pro MACHD-WFE9Q', 'VFJN3J4KFMN3', 128999,'серый', 217, 304, 14.6,  'ноутбук', 'Intel Core i7 1165G7', FALSE, TRUE, TRUE, 5, 2),
+	(5, 'Apple MacBook Pro', 'JKCN34KNF3K', 197999,'серебристый', 245.9,357.9,16.2,  'ноутбук', 'Intel Core i7 1165G7',TRUE, FALSE, TRUE, 1, 2),
+	(6, 'Huawei MateBook D 14 NbB-WAI9', 'CN3K4JC34', 42999,'серый', 214.8, 322.5, 15.9,  'ноутбук', 'Intel Core i3 10110U', FALSE, TRUE, TRUE, 5, 2),
+	(7, 'LG Gram 16', 'FJ3N4FN34JK', 159999,'черный', 243.4, 355.9, 16.8,  'ноутбук', 'Intel Core i7 1165G7',TRUE, FALSE, TRUE, 3, 2),
+	(8, 'Acer Extensa 15 EX215-52-586W', 'V435V4B45', 43999,'черный', 250.5, 363.4, 19.9,  'ноутбук', ' Intel Core i5 1035G1', FALSE, TRUE, TRUE, 7, 2);
