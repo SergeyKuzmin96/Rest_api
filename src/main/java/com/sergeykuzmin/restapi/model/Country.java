@@ -6,8 +6,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 @Data
 @Getter
@@ -22,17 +20,5 @@ public class Country implements Serializable {
 
     @Column(name = "name")
     private String name;
-
-//    @OneToMany(cascade = CascadeType.ALL,mappedBy = "country")
-//    List<Device> devices;
-//
-//    public void addDeviceToCountry(Device device){
-//        if(devices == null){
-//            devices = new ArrayList<>();
-//        }
-//        devices.add(device);
-//        device.setCountry(this);
-//    }
-
 
 }

@@ -48,34 +48,5 @@ public class DeviceFilter {
 
     private String sortBy ;
 
-//    public DeviceFilter(String name, String serialNumber, BigDecimal priceFrom, BigDecimal priceTo, String color, Double length, Double height, Double width,
-//                        String company, String country, Boolean availability, Boolean orderOnline, Boolean instalment, Integer pageNumber, Integer pageSize, String sortDirectional, String sortBy) {
-//        this.name = name;
-//        this.serialNumber = serialNumber;
-//        this.priceFrom = priceFrom;
-//        this.priceTo = priceTo;
-//        this.color = color;
-//        this.length = length;
-//        this.height = height;
-//        this.width = width;
-//        this.company = company;
-//        this.country = country;
-//        this.availability = availability;
-//        this.orderOnline = orderOnline;
-//        this.instalment = instalment;
-//        this.pageNumber = pageNumber;
-//        this.pageSize = pageSize;
-//        this.sortDirectional = sortDirectional;
-//
-//        if (sortBy.equalsIgnoreCase("price")) {
-//
-//            this.sortBy = sortBy;
-//
-//        } else {
-//
-//            this.sortBy = "name";
-//        }
-//
-//    }
 
 }
